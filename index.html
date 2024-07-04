@@ -7,7 +7,29 @@
     <title >TS Notes App</title>
   </head>
   <body class="bg-gray-900">
-    <div id="app"></div>    
+    <div id="app">
+      <div class="justify-center text-center m-4"> 
+        <h1 class="text-3xl font-bold text-yellow-100 align-middle">Notes App</h1>
+        <div class="m-auto">
+          <form id="addTaskForm" class="flex flex-col w-2/4 m-auto gap-4">
+            <label for="newItem" class="text-yellow-100" >Enter a new to do item</label>
+            <input  id="newItem" type="text" maxlength="40" autocomplete="off" placeholder="Add item" />
+            <button id="addItem" type="submit" class="bg-teal-200 w-1/2 m-auto" title="Add new item" aria-label="Add new item to list">
+              +
+            </button>
+          </form>
+        </div>
+        <div class="mt-6">      
+          <ul id="listItems" class="w-1/4 m-auto p-4">
+
+          </ul>           
+        </div> 
+        <button id="clearItemsButton" class="bg-yellow-100 p-4" title="Clear the list"
+            aria-label="Remove all items from the list">
+            Clear
+        </button>
+      </div>      
+    </div>    
     <script type="module" src="/src/main.ts" defer></script>
   </body>
 </html>
