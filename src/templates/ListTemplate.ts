@@ -24,7 +24,7 @@ export default class ListTemplate implements DOMList {
         this.clear();
         fullList.list.forEach(item => {
             const liElement = document.createElement('li') as HTMLLIElement;
-            liElement.classList.add("w-100", "border-8","flex-row", "justify-between");
+            liElement.classList.add("w-100", "border-8","flex", "content-between");
             
             const inputElement = document.createElement("input") as HTMLInputElement;
             inputElement.setAttribute("type", "checkbox");
@@ -37,12 +37,18 @@ export default class ListTemplate implements DOMList {
             inputElement.addEventListener('change', () => {
                 item.check = !item.check;
                 fullList.save();
+                if (item.check) {
+                  labelElement.classList.add("line-through");
+                } else {
+                    labelElement.classList.remove("line-through");
+                }
             })
 
             const labelElement = document.createElement("label") as HTMLLabelElement;
             labelElement.setAttribute("for", item.id);
             labelElement.textContent = item.item;
             labelElement.classList.add("text-yellow-100", "flex-1");
+            
             liElement.appendChild(labelElement);
 
             const button = document.createElement("button") as HTMLButtonElement;
